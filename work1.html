@@ -12,7 +12,7 @@
         <legend style="color:red;">学生信息</legend>
         <form id="plul" action="#" method="GET">
             姓&nbsp;&nbsp;名&nbsp;<input name="a" type="text" autofocus="autofocus" required="required" placeholder="请输入姓名"><span style="color:red;margin-left:5px;">*</span><br>
-            学&nbsp;&nbsp;号&nbsp;<input name="b" type="number"  required="required" placeholder="请输入学号"><span style="color:red;margin-left:5px;">*</span><br>
+            学&nbsp;&nbsp;号&nbsp;<input name="b" type="number"  required="required" placeholder="请输入学号" min="0"><span style="color:red;margin-left:5px;">*</span><br>
             手&nbsp;&nbsp;机&nbsp;<input name="c"type="tel"  required="required" placeholder="请输入手机号"><span style="color:red;margin-left:5px;">*</span><br>
             邮&nbsp;&nbsp;箱&nbsp;<input name="d" type="email"  required="required" placeholder="请输入邮箱地址"><span style="color:red;margin-left:5px;">*</span><br>
             
@@ -21,11 +21,21 @@
     <fieldset style="width:500px;height:100px;margin-top:20px;">
         <legend style="color:red;">录取情况</legend>
         <form action="" method="GET">
-                录取学校&nbsp;<input name="e" type="text" form="plul"><br>
-                入学成绩&nbsp;<input name="f" type="number" form="plul"><br>
-                入学时间&nbsp;<input name="g" type="date" form="plul"><br>
+            
+            录取学校&nbsp;<input name="e" type="search" form="plul" list="ed"><br>
+            <datalist id="ed">
+                    <option value="河北师范大学">河北师范大学</option>
+                    <option value="河北大学">河北大学</option>
+                    <option value="北京师范大学">北京师范大学</option>
+                    <option value="清华大学">清华大学</option>
+                    <option value="华东师范大学">华东师范大学</option>
+                </datalist>
+            入学成绩&nbsp;<input name="f" type="number" form="plul" min="0"><br>
+            入学时间&nbsp;<input name="g" type="date" form="plul"><br>
         </form>
     </fieldset>
     <input type="submit" value="提交" style="margin-top:25px;" form="plul">
+
+    
 </body>
 </html>

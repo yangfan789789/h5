@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #sou{
+            width:195px;
+            height:40px;
+        }
+        #button{
+            width:140px;
+            height:36px;
+        }
+        #text{
+            width:400px;
+            margin-left:0px;
+            float: left;
+            position:relative;
+        }
+        #shanchu{
+            background-color: gray;
+            position:absolute;
+            bottom:0px;right:0px;
+        }
+        .ap{
+            list-style-type:none;
+            float:left;
+            background-color:gray;
+            margin-right:10px;
+            margin-top:10px;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <form action="" id="form">
+        <input type="text" value="请输入想查找的商品" id="sou">
+        <input type="button" value="搜索" id="button" onclick="save('sou');">
+    </form>
+    <p>最近搜索</p>
+    <div id="text" style="border:0px;">
+        <button id="shanchu" onclick="a()">X</button>
+    </div>
+    
+
+
+
+    <script>
+        var text=document.getElementById("text");
+        function save(id) {
+            var data = document.getElementById(id).value;
+            var time = new Date().getTime();
+            localStorage.setItem(time, data);
+            text.innerHTML = '<li class="ap">'+data+'</li>'+text.innerHTML;
+            window.location.reload();
+        }//保存函数
+
+
+
+        window.onload=function() {
+            var result='';
+            for (var i = localStorage.length-1; i >=0; i--) {
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                result += '<li class="ap">' + value + '</li>';
+            }
+
+            text.innerHTML +=result;
+        }//添加函数
+
+
+
+        var shanchu=document.getElementById("shanchu");
+        console.log(typeof shanchu);
+        function a(){
+            localStorage.clear();
+            text.innerHTML='';
+        }//删除函数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // for(var i=0;i<localStorage.length;i++){
+        //     var key = localStorage.key(i);
+        //     var value = localStorage.getItem(key);
+        //     var lu=document.createTextNode(value);
+        //     var lp=document.createElement("li");
+        //     lp.appendChild(lu);
+        //     text.insertBefore(lp,text.firstChild);
+        //     lp.style.backgroundColor="gray";
+        //     lp.style.marginRight="10px";
+        //     lp.style.listStyleType="none";
+        //     lp.style.float="left";
+        // }
+        
+
+    
+    </script>
+</body>
+
+</html>

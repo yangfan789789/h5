@@ -56,11 +56,19 @@
         function save(id) {
             var data = document.getElementById(id).value;
             var time = new Date().getTime();
-            localStorage.setItem(time, data);
-            text.innerHTML = '<li class="ap">'+data+'</li>'+text.innerHTML;
-            window.location.reload();
-        }//保存函数
-
+            for (var i = localStorage.length-1; i >=0; i--) {
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                if(value == data){
+                    break;
+                }
+            }
+            if(i<0){
+                localStorage.setItem(time, data);
+                window.location.reload();
+            }
+            
+        }
 
 
         window.onload=function() {
@@ -70,9 +78,8 @@
                 var value = localStorage.getItem(key);
                 result += '<li class="ap">' + value + '</li>';
             }
-
             text.innerHTML +=result;
-        }//添加函数
+        }
 
 
 
@@ -80,7 +87,7 @@
         console.log(typeof shanchu);
         function a(){
             localStorage.clear();
-            text.innerHTML='';
+            text.innerHTML='<span style="margin-left:30px;">无搜索记录</span><button id="shanchu" onclick="a()">X</button>';
         }//删除函数
 
 

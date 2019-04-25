@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div  id="div" style="font-size:48px; line-height:300px; text-align:center;width:400px; height:300px;position:absolute;"></div>
+    <canvas width="400" height="300" id="canvas" style="position:absolute;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas");
+    var can = canvas.getContext("2d");
+
+    var div =document.getElementById("div");
+    var ary=["中奖了","谢谢惠顾","谢谢惠顾","谢谢惠顾","谢谢惠顾","谢谢惠顾","谢谢惠顾","谢谢惠顾","谢谢惠顾","谢谢惠顾"];
+    var aryrom=Math.floor(Math.random()*10);
+    div.innerHTML=ary[aryrom];
+    
+    //添加图片
+    // can.beginPath();
+    // var img = new Image();
+    // img.src = './dh.jpg';
+    // canvas.style.backgroundImage ='url("./dh.jpg")';
+
+    //添加画布
+    can.beginPath();
+    can.fillStyle = "gray";
+    can.fillRect(0,0,400,300);
+    can.fill();
+    can.closePath();
+
+    //画圆
+    function Circle(event){
+        can.globalCompositeOperation = "destination-out";
+        can.beginPath();
+        can.fillStyle="#000";
+        can.arc(event.clientX,event.clientY,30,0,2*Math.PI);
+        can.fill();
+        can.closePath();
+    }
+    //百分比，清除画布
+    function clear(can){
+        var imgData = can.getImageData(0, 0, 300, 300); 
+		var data = imgData.data; 
+		var length = data.length; 
+		var p = 0; 
+		for (var i = 0; i < length; i ++) { 
+			var alpha = data[i]; 
+			if (alpha < 10) 
+				p++;
+		}
+		var q = p /length; 
+		if (q>0.85) 
+            can.clearRect(0,0,400,300);
+    }
+    //事件响应
+    var loge = false;
+    window.onclick = function(event){
+        Circle(event);
+    }
+    window.onmousedown = function(event){
+        loge = true;
+        Circle(event); 
+    }
+    window.onmousemove = function(event){
+        if(loge){
+            Circle(event);
+        }
+        clear(can);
+    }
+    window.onmouseup = function(){
+        loge = false;          
+    }
+</script>
+</html>

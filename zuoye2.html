@@ -42,7 +42,7 @@
         can.closePath();
     }
     //百分比，清除画布
-    function clear(can){
+    function clear(){
         var imgData = can.getImageData(0, 0, 300, 300); 
 		var data = imgData.data; 
 		var length = data.length; 
@@ -69,7 +69,7 @@
         if(loge){
             Circle(event);
         }
-        clear(can);
+        clear();
     }
     window.onmouseup = function(){
         loge = false;          

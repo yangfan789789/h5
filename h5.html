@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* *{
+	    padding: 0;
+	    margin: 0;
+    } */
+        ul,ol,li{
+	        list-style: none;
+        }
+        .border{
+            border:2px solid gray;
+            width:370px;
+            height:430px;
+            overflow: hidden;
+            box-shadow: 3px 3px gray;
+        }
+        .big{
+            width:370px;
+            height:250px;
+            background:url(./zhanqiao.jpg);
+            background-size:cover;
+            position: relative;
+        }
+        .text{
+            width:370px;
+            height:180px;
+            line-height:30px;
+            font-size: 20px;
+            position: absolute;
+            top: 235px;
+        }
+        .text1{
+            margin-top:-30px;
+            font-weight:bold;
+        }
+        .text2{
+            color:red;
+            font-size:16px;
+        }
+        .text3{
+            color:gray;
+            display:none;
+            font-size:14px;
+        }
+        .text4{
+            margin-left:-20px;
+            font-size:8px;
+            margin-top:160px;
+            color:gray;
+        }
+        .yangshi1{
+            width:56px;
+            height:27px;
+            background-color: #fb7448;
+            text-align: center;
+            color:white;
+            font-size:10px;
+            padding-bottom:8px;
+        }
+        .neirong{
+            width:360px;
+            height:145px;
+            background-color: white;
+            margin-right:0px;
+            padding-left:10px;
+        }
+        
+        .big1{
+            width:46px;
+            height:46px;
+            border-radius: 100%;
+            color:white;
+            font-size:10px;
+            background-color: #fb7448;
+            position: fixed;
+            top:30px;
+            left:305px;
+        }
+        .shuzi1{
+            margin-left:-24px;
+        }
+        .shuzi2{
+            margin-left:-24px;
+        }
+
+
+
+        div:hover .text3{
+            display:block;
+        }
+        div:hover .text{
+            animation:mynum1 0.5s linear 1;
+            top: 135px;
+        }
+        @keyframes mynum1 {
+            0%{
+                top:235px;
+            }  
+
+            50%{
+                top:180px;
+            }
+            100%{
+                top:135px;
+            }
+        }
+
+        
+        div:hover .big{
+            animation:mynum2 0.5s linear 1;
+            transform: scale(1.25,1.25);
+        }
+        @keyframes mynum2 {
+            0%{
+                transform: scale(1.0,1.0);
+            }  
+
+            50%{
+                transform: scale(1.12,1.12);
+            }
+            100%{
+                transform: scale(1.25,1.25);
+            }
+        }
+        .big div{
+            position:absolute;
+            left:0;top:0;
+            width:370px;
+            height:250px;
+            background: rgba(36, 32, 32, 0.5);
+            display:none;
+        }
+        .border:hover div{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div class="border">
+        <div class="big">
+                <div></div>
+        </div>
+        <div class="text">
+            <div class="yangshi1">照片</div>
+            <ul class="neirong">
+                <li class="text1">青岛栈桥</li>
+                <li class="text2">国家AAAA级旅游景区</li>
+                <li class="text3">青岛栈桥是青岛海滨风景区的景点之一，是国务院于1982年首批公布的国家级风景名胜区。青岛栈桥位于游人如织的青岛中山路南端，桥身从海岸探入如弯月班的青岛湾深处。桥身供游人参观并在此停靠旅游船，由此乘船课看海上青岛。</li>
+            </ul>
+        </div>
+        <div class="dibu">
+            <ul><li class="text4">10分钟前  &nbsp;&nbsp;&nbsp;&nbsp; 123评论</li></ul>
+        </div>
+    </div>
+    <div class="big1">
+            <ul>
+                <li class="shuzi1">15</li><li class="shuzi2">5月</li>
+            </ul>
+        </div>
+    
+</body>
+
+</html>
